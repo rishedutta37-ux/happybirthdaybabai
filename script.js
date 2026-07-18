@@ -584,16 +584,53 @@ window.addEventListener("load", () => {
     console.log("Made with ❤️ by Protyush");
 
 });
-document.getElementById("celebrateBtn").addEventListener("click",()=>{
+/* ======================================
+   Happy 5th Engaged Day
+====================================== */
 
-confetti({
+const celebrateBtn = document.getElementById("celebrateBtn");
 
-particleCount:300,
+if (celebrateBtn) {
 
-spread:180,
+    celebrateBtn.addEventListener("click", () => {
 
-origin:{y:0.6}
+        // Fireworks Effect
+        if (typeof confetti === "function") {
 
-});
+            const duration = 5000;
+            const end = Date.now() + duration;
 
-});
+            (function frame() {
+
+                confetti({
+                    particleCount: 8,
+                    angle: 60,
+                    spread: 70,
+                    origin: { x: 0 }
+                });
+
+                confetti({
+                    particleCount: 8,
+                    angle: 120,
+                    spread: 70,
+                    origin: { x: 1 }
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+
+            })();
+
+        }
+
+        // Romantic Message
+        setTimeout(() => {
+
+            alert("💍 Happy 5th Engaged Day ❤️\n\nForever Together, Forever in Love.\n\nI Love You, Mondira ❤️");
+
+        }, 1500);
+
+    });
+
+}

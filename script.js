@@ -584,3 +584,16 @@ window.addEventListener("load", () => {
     console.log("Made with ❤️ by Protyush");
 
 });
+document.getElementById("celebrateBtn").addEventListener("click",()=>{
+
+confetti({
+
+particleCount:300,
+
+spread:180,
+
+origin:{y:0.6}
+
+});
+
+});
